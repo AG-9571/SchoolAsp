@@ -1,0 +1,11 @@
+@model List<Asignatura>
+@{
+    ViewData["Title"] = "lista de Asignaturas";
+}
+<h1>
+    asignatura: @ViewData["Title"]
+</h1>
+@foreach (var asignatura in Model)
+{
+    <partial name="Components/ListAsignaturas"  model="asignatura" />   
+}
