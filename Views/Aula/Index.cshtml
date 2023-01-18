@@ -1,4 +1,4 @@
-@model IEnumerable<school.Models.Alumno>
+@model IEnumerable<school.Models.Aula>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.subname)
+                @Html.DisplayNameFor(model => model.AulaId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.email)
+                @Html.DisplayNameFor(model => model.desctiption)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pass)
+                @Html.DisplayNameFor(model => model.Jornada)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.phone)
+                @Html.DisplayNameFor(model => model.and)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Permices)
+                @Html.DisplayNameFor(model => model.end)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dirección)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.name)
@@ -37,19 +40,22 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.subname)
+                @Html.DisplayFor(modelItem => item.AulaId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.email)
+                @Html.DisplayFor(modelItem => item.desctiption)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pass)
+                @Html.DisplayFor(modelItem => item.Jornada)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.phone)
+                @Html.DisplayFor(modelItem => item.and)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Permices)
+                @Html.DisplayFor(modelItem => item.end)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dirección)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.name)

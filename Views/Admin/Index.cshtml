@@ -1,4 +1,4 @@
-@model IEnumerable<school.Models.Alumno>
+@model IEnumerable<school.Models.Admin>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,19 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.subname)
+                @Html.DisplayNameFor(model => model.pass)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.phone)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Permices)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.code)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.name)
@@ -37,19 +34,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.subname)
+                @Html.DisplayFor(modelItem => item.pass)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.phone)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Permices)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.name)

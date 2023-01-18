@@ -9,88 +9,88 @@ using school.Models;
 
 namespace school.Controllers
 {
-    public class AlumnoController : Controller
+    public class AulaController : Controller
     {
         private readonly EscuelaContext _context;
 
-        public AlumnoController(EscuelaContext context)
+        public AulaController(EscuelaContext context)
         {
             _context = context;
         }
 
-        // GET: Alumno
-        public async Task<IActionResult> Index(Guid? Alumno)
+        // GET: Aula
+        public async Task<IActionResult> Index()
         {
-              return _context.Alumnos != null ? 
-                          View(await _context.Alumnos.ToListAsync()) :
-                          Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+              return _context.Aulas != null ? 
+                          View(await _context.Aulas.ToListAsync()) :
+                          Problem("Entity set 'EscuelaContext.Aulas'  is null.");
         }
 
-        // GET: Alumno/Details/5
+        // GET: Aula/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Aulas == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var aula = await _context.Aulas
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (aula == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(aula);
         }
 
-        // GET: Alumno/Create
+        // GET: Aula/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Alumno/Create
+        // POST: Aula/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Create([Bind("AulaId,desctiption,Jornada,and,end,Dirección,Id,name")] Aula aula)
         {
             if (ModelState.IsValid)
             {
-                alumno.Id = Guid.NewGuid();
-                _context.Add(alumno);
+                aula.Id = Guid.NewGuid();
+                _context.Add(aula);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(aula);
         }
 
-        // GET: Alumno/Edit/5
+        // GET: Aula/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Aulas == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno == null)
+            var aula = await _context.Aulas.FindAsync(id);
+            if (aula == null)
             {
                 return NotFound();
             }
-            return View(alumno);
+            return View(aula);
         }
 
-        // POST: Alumno/Edit/5
+        // POST: Aula/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Edit(Guid id, [Bind("AulaId,desctiption,Jornada,and,end,Dirección,Id,name")] Aula aula)
         {
-            if (id != alumno.Id)
+            if (id != aula.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace school.Controllers
             {
                 try
                 {
-                    _context.Update(alumno);
+                    _context.Update(aula);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlumnoExists(alumno.Id))
+                    if (!AulaExists(aula.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace school.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(aula);
         }
 
-        // GET: Alumno/Delete/5
+        // GET: Aula/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Aulas == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var aula = await _context.Aulas
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (aula == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(aula);
         }
 
-        // POST: Alumno/Delete/5
+        // POST: Aula/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Alumnos == null)
+            if (_context.Aulas == null)
             {
-                return Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+                return Problem("Entity set 'EscuelaContext.Aulas'  is null.");
             }
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno != null)
+            var aula = await _context.Aulas.FindAsync(id);
+            if (aula != null)
             {
-                _context.Alumnos.Remove(alumno);
+                _context.Aulas.Remove(aula);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AlumnoExists(Guid id)
+        private bool AulaExists(Guid id)
         {
-          return (_context.Alumnos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Aulas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

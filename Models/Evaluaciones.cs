@@ -2,15 +2,12 @@ using System;
 
 namespace school.Models;
 
-public class Evaluaciones
+public class Evaluaciones : objectBaseModel
 {
-    public string UniqueId { get; private set; }
-    public string name { get; set; }
-
-    public Alumno Alumno { get; set; }
-    public Asignatura Asignatura  { get; set; }
-
+    public Alumno? Alumno { get; set; }
+    public Asignatura? Asignatura  { get; set; }
+    public int promedio {get; set;}
     public float Nota { get; set; }
 
-    public Evaluaciones() => UniqueId = Guid.NewGuid().ToString();
+    public Evaluaciones() => Id = Guid.NewGuid();
 }

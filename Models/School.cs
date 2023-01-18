@@ -16,7 +16,7 @@ public class School
     public string? Direccion { get; set; }
 
     public typeschool typeschool { get; set; }
-    public List<Curso> Cursos { get; set; }
+    public List<Aula> Cursos { get; set; }
 
     public School(
         string name, 

@@ -5,8 +5,11 @@ public class EscuelaContext : DbContext
 {
     public DbSet<School>? Schools {get; set;}
     public DbSet<Asignatura>? Asignaturas {get; set;}
-    public DbSet<Curso>? Cursos {get; set;}
-    public DbSet<Evaluacion>? Evaluacios {get; set;}
+    public DbSet<Aula>? Aulas {get; set;}
+    public DbSet<Evaluaciones>? Evaluaciones {get; set;}
+    public DbSet<Alumno>? Alumnos {get; set;}
+    public DbSet<Admin>? Admins {get; set;}
+    public DbSet<ticher>? tichers {get; set;}
 
     public EscuelaContext (DbContextOptions<EscuelaContext> options): base(options)
     {
@@ -28,12 +31,16 @@ public class EscuelaContext : DbContext
             modelBuilder.Entity<School>().HasData(escuela);
             modelBuilder.Entity<Asignatura>().HasData(
                 new Asignatura{
-                    id = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     name = "español",
                 },
                 new Asignatura{
-                    id = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     name = "español",
+                },
+                new Asignatura{
+                    Id = Guid.NewGuid(),
+                    name = "matematicas",
                 }
             );
             modelBuilder.Entity<Alumno>().HasData( generatAulumnos( 22 ).ToArray());
@@ -50,10 +57,10 @@ public class EscuelaContext : DbContext
                            from a1 in apellido1
                             select new Alumno { 
                                 name = $"{n1} {n2} {a1}" ,
-                                id = Guid.NewGuid()
+                                Id = Guid.NewGuid()
                                 };
 
-        return listaAlumnos.OrderBy((al) => al.id).Take(cantidad).ToList();
+        return listaAlumnos.OrderBy((al) => al.Id).Take(cantidad).ToList();
     }
 
 }

@@ -9,88 +9,88 @@ using school.Models;
 
 namespace school.Controllers
 {
-    public class AlumnoController : Controller
+    public class EvaluacionesController : Controller
     {
         private readonly EscuelaContext _context;
 
-        public AlumnoController(EscuelaContext context)
+        public EvaluacionesController(EscuelaContext context)
         {
             _context = context;
         }
 
-        // GET: Alumno
-        public async Task<IActionResult> Index(Guid? Alumno)
+        // GET: Evaluaciones
+        public async Task<IActionResult> Index()
         {
-              return _context.Alumnos != null ? 
-                          View(await _context.Alumnos.ToListAsync()) :
-                          Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+              return _context.Evaluaciones != null ? 
+                          View(await _context.Evaluaciones.ToListAsync()) :
+                          Problem("Entity set 'EscuelaContext.Evaluaciones'  is null.");
         }
 
-        // GET: Alumno/Details/5
+        // GET: Evaluaciones/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Evaluaciones == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var evaluaciones = await _context.Evaluaciones
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (evaluaciones == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(evaluaciones);
         }
 
-        // GET: Alumno/Create
+        // GET: Evaluaciones/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Alumno/Create
+        // POST: Evaluaciones/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Create([Bind("promedio,Nota,Id,name")] Evaluaciones evaluaciones)
         {
             if (ModelState.IsValid)
             {
-                alumno.Id = Guid.NewGuid();
-                _context.Add(alumno);
+                evaluaciones.Id = Guid.NewGuid();
+                _context.Add(evaluaciones);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(evaluaciones);
         }
 
-        // GET: Alumno/Edit/5
+        // GET: Evaluaciones/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Evaluaciones == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno == null)
+            var evaluaciones = await _context.Evaluaciones.FindAsync(id);
+            if (evaluaciones == null)
             {
                 return NotFound();
             }
-            return View(alumno);
+            return View(evaluaciones);
         }
 
-        // POST: Alumno/Edit/5
+        // POST: Evaluaciones/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Edit(Guid id, [Bind("promedio,Nota,Id,name")] Evaluaciones evaluaciones)
         {
-            if (id != alumno.Id)
+            if (id != evaluaciones.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace school.Controllers
             {
                 try
                 {
-                    _context.Update(alumno);
+                    _context.Update(evaluaciones);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlumnoExists(alumno.Id))
+                    if (!EvaluacionesExists(evaluaciones.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace school.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(evaluaciones);
         }
 
-        // GET: Alumno/Delete/5
+        // GET: Evaluaciones/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.Evaluaciones == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var evaluaciones = await _context.Evaluaciones
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (evaluaciones == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(evaluaciones);
         }
 
-        // POST: Alumno/Delete/5
+        // POST: Evaluaciones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Alumnos == null)
+            if (_context.Evaluaciones == null)
             {
-                return Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+                return Problem("Entity set 'EscuelaContext.Evaluaciones'  is null.");
             }
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno != null)
+            var evaluaciones = await _context.Evaluaciones.FindAsync(id);
+            if (evaluaciones != null)
             {
-                _context.Alumnos.Remove(alumno);
+                _context.Evaluaciones.Remove(evaluaciones);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AlumnoExists(Guid id)
+        private bool EvaluacionesExists(Guid id)
         {
-          return (_context.Alumnos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Evaluaciones?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

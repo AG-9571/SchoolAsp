@@ -9,88 +9,88 @@ using school.Models;
 
 namespace school.Controllers
 {
-    public class AlumnoController : Controller
+    public class ticherController : Controller
     {
         private readonly EscuelaContext _context;
 
-        public AlumnoController(EscuelaContext context)
+        public ticherController(EscuelaContext context)
         {
             _context = context;
         }
 
-        // GET: Alumno
-        public async Task<IActionResult> Index(Guid? Alumno)
+        // GET: ticher
+        public async Task<IActionResult> Index()
         {
-              return _context.Alumnos != null ? 
-                          View(await _context.Alumnos.ToListAsync()) :
-                          Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+              return _context.tichers != null ? 
+                          View(await _context.tichers.ToListAsync()) :
+                          Problem("Entity set 'EscuelaContext.tichers'  is null.");
         }
 
-        // GET: Alumno/Details/5
+        // GET: ticher/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.tichers == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var ticher = await _context.tichers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (ticher == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(ticher);
         }
 
-        // GET: Alumno/Create
+        // GET: ticher/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Alumno/Create
+        // POST: ticher/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Create([Bind("email,pass,Permices,Id,name")] ticher ticher)
         {
             if (ModelState.IsValid)
             {
-                alumno.Id = Guid.NewGuid();
-                _context.Add(alumno);
+                ticher.Id = Guid.NewGuid();
+                _context.Add(ticher);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(ticher);
         }
 
-        // GET: Alumno/Edit/5
+        // GET: ticher/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.tichers == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno == null)
+            var ticher = await _context.tichers.FindAsync(id);
+            if (ticher == null)
             {
                 return NotFound();
             }
-            return View(alumno);
+            return View(ticher);
         }
 
-        // POST: Alumno/Edit/5
+        // POST: ticher/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Edit(Guid id, [Bind("email,pass,Permices,Id,name")] ticher ticher)
         {
-            if (id != alumno.Id)
+            if (id != ticher.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace school.Controllers
             {
                 try
                 {
-                    _context.Update(alumno);
+                    _context.Update(ticher);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AlumnoExists(alumno.Id))
+                    if (!ticherExists(ticher.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace school.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(alumno);
+            return View(ticher);
         }
 
-        // GET: Alumno/Delete/5
+        // GET: ticher/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
-            if (id == null || _context.Alumnos == null)
+            if (id == null || _context.tichers == null)
             {
                 return NotFound();
             }
 
-            var alumno = await _context.Alumnos
+            var ticher = await _context.tichers
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (alumno == null)
+            if (ticher == null)
             {
                 return NotFound();
             }
 
-            return View(alumno);
+            return View(ticher);
         }
 
-        // POST: Alumno/Delete/5
+        // POST: ticher/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            if (_context.Alumnos == null)
+            if (_context.tichers == null)
             {
-                return Problem("Entity set 'EscuelaContext.Alumnos'  is null.");
+                return Problem("Entity set 'EscuelaContext.tichers'  is null.");
             }
-            var alumno = await _context.Alumnos.FindAsync(id);
-            if (alumno != null)
+            var ticher = await _context.tichers.FindAsync(id);
+            if (ticher != null)
             {
-                _context.Alumnos.Remove(alumno);
+                _context.tichers.Remove(ticher);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AlumnoExists(Guid id)
+        private bool ticherExists(Guid id)
         {
-          return (_context.Alumnos?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.tichers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
