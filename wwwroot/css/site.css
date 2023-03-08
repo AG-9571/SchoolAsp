@@ -1,22 +1,150 @@
-html {
-  font-size: 14px;
+ul {
+  list-style: none;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+ul li {
+  color: blue;
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+a {
+  color: #bab3b3;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+  background-color: #F3F3F4;
+}
+body header {
+  background-color: #171616;
+  padding: 1px 40px 1px 40px;
+  position: fixed;
+  width: 100%;
+}
+body header nav {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 27px;
+}
+body header nav section.left {
+  display: grid;
+  height: 27px;
+  grid-template-columns: repeat(4, 1fr);
+}
+body header nav section.left a h1 {
+  font-size: 1rem ;
+}
+body header nav section.left i {
+  grid-column: 4;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body header nav section.rigth {
+  height: 27px;
+  grid-column: 6;
+}
+body header nav section.rigth ul.naving {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+body main {
+  overflow: hidden;
+  height: 100vh;
+  padding-block-start: 27px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+body main aside {
+  background-color: #171616;
+  height: 100vh;
+  box-shadow: 8px 0px 20px #9b9a9a;
+}
+body main aside nav {
+  background-color: #171616;
+}
+body main aside nav a {
+  margin-block-start: 10px;
+  color: #7a2626;
+  padding: 1px 40px 1px 40px;
+}
+body main aside nav a i {
+  margin-inline-end: 1vh;
+}
+body main aside nav ul li button {
+  color: #F3F3F4;
+  background-color: transparent;
+  width: 100%;
+}
+body main aside nav ul li button {
+  padding: 1px 40px 1px 40px;
+  padding-block-start: 7px;
+  padding-block-end: 7px;
+  color: #F3F3F4;
+  border: none;
+  display: flex !important;
+  background-color: #252323;
+}
+body main aside nav ul li button i {
+  margin-inline-end: 1vh;
+}
+body main aside nav ul li button p {
+  margin-bottom: 0;
+}
+body main aside nav ul li button:hover {
+  color: beige;
+  background-color: #2e1a1a;
+}
+body main aside nav ul li button:focus {
+  color: #F3F3F4;
+  background-color: #2e1a1a;
+}
+body main aside nav ul li button.active {
+  background-color: #6a2424;
+}
+body main aside nav ul li div.collapse ul {
+  margin-inline-start: 22px;
+}
+body main aside nav ul li div.collapse ul li {
+  margin: 7px 0px 6px 0px;
+}
+body main aside nav ul li div.collapse ul li a {
+  color: #F3F3F4;
+}
+body main aside nav ul li div.collapse ul li a:hover {
+  color: #7a2626;
+}
+body main aside footer div p {
+  color: #F3F3F4;
+  font-size: 12px;
+}
+body main aside footer div strong {
+  font-size: 12px;
+  color: #f3f3f478;
+}
+body main section {
+  overflow-y: scroll;
+  margin: 50px;
+  grid-column: 2/8;
+}
+body main section::-webkit-scrollbar {
+  display: none;
+}
+body main section p {
+  margin: 31px 0px 30px 12px;
+}
+body main section p a {
+  background: #7a2626;
+  padding: 6px 12px 6px 12px;
+  border-radius: 9px;
+  margin-inline-end: 33px;
+  color: #F3F3F4;
+}
+body main section p a:hover {
+  color: #26657a;
+}
+body main section div form div input.create {
+  margin-block-start: 18px;
+}
+body main section div.bcklist {
+  margin-block-start: 10px;
+}
+body main section div.bcklist a {
+  color: #171616;
 }

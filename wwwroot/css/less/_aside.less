@@ -1,0 +1,61 @@
+nav{
+    background-color: #Colors[primary];
+    a{
+        margin-block-start: 10px;
+        color: #Colors[red];
+        padding: @Padding;
+        i{
+            margin-inline-end:#spacing[icon_aside] ;
+        }
+    }
+    ul{
+        li{
+            button{
+                color: #Colors[secondary];
+                background-color: transparent;
+                width: 100%;
+            }
+            button{
+                padding: @Padding;
+                padding-block-start: 7px;
+                padding-block-end: 7px;
+                color: #Colors[secondary];
+                border: none;
+                display: flex !important;
+                background-color: #Colors[black];
+                i{
+                    margin-inline-end: #spacing[icon_aside] ;
+                }
+                p{
+                    margin-bottom: 0;
+                }
+                &:hover{
+                    color: beige;
+                    background-color: #Colors[BlackSecond];
+                }
+                &:focus{
+                    color: #Colors[secondary];
+                    background-color: #Colors[BlackSecond];
+                }
+            }
+            button.active{
+                background-color: #Colors[redScond];
+            }
+            div.collapse{
+                ul{ 
+                    margin-inline-start: 22px;
+                    li{
+                        margin: 7px 0px 6px 0px;
+                        a{
+                            color: #Colors[secondary];
+                            &:hover{
+                                color: #Colors[red];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

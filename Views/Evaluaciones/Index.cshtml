@@ -1,10 +1,10 @@
 @model IEnumerable<school.Models.Evaluaciones>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Calificaciones";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.promedio)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nota)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
             </th>
             <th></th>
         </tr>
@@ -28,13 +28,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.promedio)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Nota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

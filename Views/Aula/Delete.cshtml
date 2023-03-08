@@ -30,24 +30,6 @@
             @Html.DisplayFor(model => model.Jornada)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.and)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.and)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.end)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.end)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dirección)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dirección)
-        </dd>
-        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.name)
         </dt>
         <dd class = "col-sm-10">
@@ -56,7 +38,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="AulaId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

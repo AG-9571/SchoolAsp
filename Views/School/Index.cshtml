@@ -1,16 +1,65 @@
-@model School
+@model IEnumerable<school.Models.School>
 
 @{
-    ViewData["Title"] = "Información Escuela";
+    ViewData["Title"] = "School";
 }
 
-<h1>Escuela @ViewData["Title"]</h1>
-<h2>Nombre: @Model.name</h2>
-<h3>Tipo de escuela @Model.typeschool</h3>
+<h1>@ViewData["Title"]</h1>
 
-<address>
-    <p>Direction: @Model.Direccion</p>
-    <p>Pais: @Model.Pais </p>
-    <p>City: @Model.Ciudad </p>
-</address>
-<p><strong>Año fundación:@Model.AñoDeCreacion </strong> </p>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.typeschool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AñoDeCreacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.typeschool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AñoDeCreacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Schoolid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Schoolid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Schoolid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

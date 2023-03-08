@@ -7,7 +7,7 @@ namespace school.Models;
 public class Asignatura : objectBaseModel
 {
     public Aula? Aula {set; get;}
-    public int hora {get; set;}
+    public long hora {get; set;}
     public Wekend Wekend {get; set;}    
 }
 public enum Wekend

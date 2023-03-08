@@ -4,12 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
 <h4>Asignatura</h4>
+<p></p>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-7">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -19,8 +20,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Wekend" class="control-label"></label>
-                <select asp-for="Wekend" class="form-control"></select>
-                <span asp-validation-for="Wekend" class="text-danger"></span>
+                @Html.DropDownList(
+                    "wekend", Html.GetEnumSelectList<Wekend>(),
+                    "wekend",
+                    new {@class = "form-control text-danger"}
+                )
             </div>
             <div class="form-group">
                 <label asp-for="name" class="control-label"></label>
@@ -28,14 +32,14 @@
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary create" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="bcklist">
+    <a asp-action="Index"><i class="bi bi-arrow-left-square-fill"></i> Back to List</a>
 </div>
 
 @section Scripts {

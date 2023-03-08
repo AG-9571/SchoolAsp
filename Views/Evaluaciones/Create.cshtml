@@ -1,17 +1,22 @@
 @model school.Models.Evaluaciones
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Calificaciones";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"] - Create</h1>
 
 <h4>Evaluaciones</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-7">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="promedio" class="control-label"></label>
                 <input asp-for="promedio" class="form-control" />
@@ -23,19 +28,14 @@
                 <span asp-validation-for="Nota" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="name" class="control-label"></label>
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary create" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="bcklist">
+    <a asp-action="Index"><i class="bi bi-arrow-left-square-fill"></i> Back to List</a>
 </div>
 
 @section Scripts {

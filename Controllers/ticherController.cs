@@ -60,6 +60,7 @@ namespace school.Controllers
             if (ModelState.IsValid)
             {
                 ticher.Id = Guid.NewGuid();
+                ticher.Permices = Permices.ticher;
                 _context.Add(ticher);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -1,0 +1,96 @@
+#Colors(){
+    primary: rgb(23, 22, 22);
+    secondary: #F3F3F4;
+    tercery: #26657a;
+    red: #7a2626 ;
+    redScond: #6a2424;
+    blue: blue;   
+    black:#252323;
+    BlackSecond:#2e1a1a;
+    darck : black;
+    white: rgb(186, 179, 179);
+}
+#tipografy(){
+    primary: Elvetica;
+}
+#spacing(){
+    icon_aside: 1vh;
+}
+@Padding: 1px 40px 1px 40px;
+@nav-height: 27px;
+
+ul{
+    list-style: none;
+    li{
+        color:#Colors[blue] ;
+    }
+}
+a{
+    color:#Colors[white];
+}
+body{
+    background-color: #Colors[secondary];
+    header{
+        background-color: #Colors[primary];
+        padding: @Padding;
+        position: fixed;
+        width: 100%;
+
+        @import url('./less/_nav.less');
+    }
+    main{
+        overflow: hidden;
+        height: 100vh;
+        padding-block-start: 27px;
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        aside{
+            background-color: #Colors[primary];
+            height: 100vh;
+            box-shadow: 8px 0px 20px #9b9a9a;
+            @import url('./less/_aside.less');
+            footer
+            {
+                div
+                {
+                    p
+                    {
+                        color: #Colors[secondary];
+                        font-size: 12px;
+                    }
+                    strong
+                    {
+                        font-size: 12px;
+                        color:#f3f3f478;
+                    }
+
+                }
+
+            }
+        }
+        section{
+            overflow-y: scroll;
+            margin: 50px;
+            grid-column: 2/ 8;
+            &::-webkit-scrollbar
+            {
+                display: none;
+            }
+            p{
+                margin: 31px 0px 30px 12px;
+                a{
+                    background: #Colors[red];
+                    padding: 6px 12px 6px 12px;                    
+                    border-radius: 9px;
+                    margin-inline-end: 33px;
+                    color: #Colors[secondary] ;
+                    &:hover{
+                        color: #Colors[tercery];
+                    }
+                }
+            }
+            @import url("./less/create.less");
+        }
+    }
+    
+}

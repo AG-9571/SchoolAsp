@@ -1,0 +1,30 @@
+nav{
+    display: grid;
+    grid-template-columns: repeat(6,1fr) ;
+    height:@nav-height;
+    section.left{
+        display: grid;
+        height: @nav-height;
+        grid-template-columns: repeat(4,1fr);
+        a{
+            h1{
+                font-size: 1rem ;
+            }
+        }
+        i{
+            grid-column:4;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    section.rigth{
+        height: @nav-height;
+        grid-column: 6;
+        ul.naving{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}

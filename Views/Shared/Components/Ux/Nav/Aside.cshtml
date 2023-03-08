@@ -1,0 +1,106 @@
+<aside class="head-darck">
+    <nav class="bg-darck">
+        <a href="/" class="d-flex align-items-center pb-3 link-white text-decoration-none">
+            <i class="bi-house"></i>
+            <span class="fs-5 fw-semibold border-button my-3">Deshboard</span>
+        </a>
+        <ul class="list-unstyled ps-0">
+            <li class="mb-1">
+                <button id="school" class="btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" aria-expanded="true">
+                    <i class="bi bi-stack"></i>
+                    <spam>School</spam>
+                </button>
+                <div class="collapse" id="school-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/school" class="link-dark rounded">List</a></li>
+                        <li><a href="/school/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="evaluaciones" class="btn-toggle align-items-center d-flex rounded collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                    <i class="bi bi-file-earmark-bar-graph" ></i>
+                    <p>Calificaciones</p>
+                </button>
+                <div class="collapse" id="evaluaciones-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/evaluaciones" class="link-dark rounded">List</a></li>
+                        <li><a href="/evaluaciones/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="alumno" class=" btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                    <i class="bi bi-file-earmark-person"></i>
+                    <spam>Alumnos</spam>
+                </button>
+                <div class="collapse" id="alumno-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/alumno" class="link-dark rounded">List</a></li>
+                        <li><a href="/alumno/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="aula" class="btn-toggle rounded collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                    <i class="bi bi-person-lines-fill"></i>
+                    <spam>Aulas</spam>
+                </button>
+                <div class="collapse" id="aula-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/aula" class="link-dark rounded">List</a></li>
+                        <li><a href="/aula/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="ticher" class="btn-toggle rounded collapsed" data-bs-toggle="collapse" aria-expanded="false">
+                    <i class="bi bi-person-video"></i>
+                    <spam>Profesor</spam>
+                </button>
+                <div class="collapse" id="ticher-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/ticher" class="link-dark rounded">List</a></li>
+                        <li><a href="/ticher/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="asignatura" class="btn-toggle rounded collapsed" data-bs-toggle="collapse"  aria-expanded="false">
+                <i class="bi bi-clipboard-check"></i>
+                <spam>Asignaturas </spam>
+                </button>
+                <div class="collapse" id="asignatura-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/asignatura" class="link-dark rounded">List</a></li>
+                        <li><a href="/asignatura/create" class="link-dark rounded">Create</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button id="admin" class="btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#admin-collapse" aria-expanded="false">
+                    <i class="bi bi-person-fill-gear"></i>
+                    <spam>Admin</spam>
+                </button>
+                <div class="collapse" id="admin-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="/admin" class="link-dark rounded">List</a></li>
+                        <li><a href="/admin/create" class="link-dark rounded">Create</a></li>
+                </ul>
+                </div>
+            </li>
+        </ul>
+        <div class="dropdown border-top">
+            <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                <li><a class="dropdown-item" href="~/Admin/Edit">Settings</a></li>
+                <li><a class="dropdown-item" href="~/admin/details">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <partial name='Components/Ux/Footer/Footer' />
+</aside>

@@ -35,7 +35,7 @@ namespace school.Controllers
             }
 
             var aula = await _context.Aulas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.AulaId == id);
             if (aula == null)
             {
                 return NotFound();
@@ -59,7 +59,7 @@ namespace school.Controllers
         {
             if (ModelState.IsValid)
             {
-                aula.Id = Guid.NewGuid();
+                aula.AulaId = Guid.NewGuid();
                 _context.Add(aula);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -90,7 +90,7 @@ namespace school.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("AulaId,desctiption,Jornada,and,end,Dirección,Id,name")] Aula aula)
         {
-            if (id != aula.Id)
+            if (id != aula.AulaId)
             {
                 return NotFound();
             }
@@ -104,7 +104,7 @@ namespace school.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AulaExists(aula.Id))
+                    if (!AulaExists(aula.AulaId))
                     {
                         return NotFound();
                     }
@@ -127,7 +127,7 @@ namespace school.Controllers
             }
 
             var aula = await _context.Aulas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.AulaId == id);
             if (aula == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace school.Controllers
 
         private bool AulaExists(Guid id)
         {
-          return (_context.Aulas?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Aulas?.Any(e => e.AulaId == id)).GetValueOrDefault();
         }
     }
 }

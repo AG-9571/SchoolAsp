@@ -21,6 +21,7 @@ namespace school.Controllers
         // GET: Asignatura
         public async Task<IActionResult> Index()
         {
+            ViewBag.Asigatura = true;
               return _context.Asignaturas != null ? 
                           View(await _context.Asignaturas.ToListAsync()) :
                           Problem("Entity set 'EscuelaContext.Asignaturas'  is null.");

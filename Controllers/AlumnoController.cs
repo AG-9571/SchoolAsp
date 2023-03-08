@@ -55,11 +55,12 @@ namespace school.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("subname,email,pass,phone,Permices,Id,name")] Alumno alumno)
+        public async Task<IActionResult> Create([Bind("subname,email,pass,phone,Id,name")] Alumno alumno)
         {
             if (ModelState.IsValid)
             {
                 alumno.Id = Guid.NewGuid();
+                alumno.Permices = Permices.Alumno;
                 _context.Add(alumno);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

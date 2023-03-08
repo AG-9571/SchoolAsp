@@ -1,19 +1,32 @@
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container-fluid">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">school</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<nav>
+    <section class="left">
+        <a href="">
+            <h1> School </h1>
+        </a>
+        <i class="bi bi-caret-left-fill"></i>
+    </section>
+    <section class="rigth">
+        <ul class="naving">
+            <li>
+                <a href="">
+                </a>
+            </li>
+            <li>
+                <a asp-controller="admin" asp-action="Edit" >
+                    <i class="bi-tools"></i>
+                </a>
+            </li>
+            <div class="drop_down">
+                <a href="#" class="d-flex align-items-center justify-content-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                    <li><a class="dropdown-item" asp-controller="admin" asp-action="Edit">Settings</a></li>
+                    <li><a class="dropdown-item" asp-controller="admin" asp-action="details">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </ul>
+    </section>
 </nav>

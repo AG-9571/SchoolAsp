@@ -29,11 +29,22 @@ namespace school.Controllers
         // GET: Admin/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
-            if (id == null || _context.Admins == null)
+            if ( _context.Admins == null)
             {
                 return NotFound();
             }
-
+            if(id == null)
+            {
+                var admin1 = new Admin
+                {
+                    pass = "Admin",
+                    email = "admin@gmail.com",
+                    Permices = Permices.admin,
+                    code = 52525261,
+                    name = "admin" 
+                };
+                return View(admin1);
+            }
             var admin = await _context.Admins
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (admin == null)
@@ -60,6 +71,7 @@ namespace school.Controllers
             if (ModelState.IsValid)
             {
                 admin.Id = Guid.NewGuid();
+                admin.Permices = Permices.admin;
                 _context.Add(admin);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -70,11 +82,25 @@ namespace school.Controllers
         // GET: Admin/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
-            if (id == null || _context.Admins == null)
+            if ( _context.Admins == null)
             {
                 return NotFound();
             }
 
+            
+            if( id == null )
+            { 
+                var admin1 = new Admin
+                {
+                    pass = "Admin",
+                    email = "admin@gmail.com",
+                    Permices = Permices.admin,
+                    code = 52525261,
+                    name = "admin" 
+                };
+                return View(admin1);
+
+            }
             var admin = await _context.Admins.FindAsync(id);
             if (admin == null)
             {

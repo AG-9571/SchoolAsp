@@ -10,8 +10,9 @@ public class Alumno: objectBaseModel
     public string? subname {get; set;}
     public string? email { get; set; }
     public string? pass { get; set; }
-    public int? phone {get; set;}
+    public long? phone {get; set;}
     public Aula? idCurso {get; set;}
+    public School? schoolId {get; set;}
     public Permices Permices {get; set;}
     public List<Evaluaciones> Evaluaciones { get; set; } = new List<Evaluaciones>();
 }

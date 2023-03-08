@@ -1,10 +1,10 @@
 @model IEnumerable<school.Models.Alumno>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Alumnos";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,22 +13,16 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.subname)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.pass)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Permices)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
             </th>
             <th></th>
         </tr>
@@ -37,22 +31,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.subname)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.pass)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Permices)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

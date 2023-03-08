@@ -17,7 +17,7 @@ public class Admin : objectBaseModel
     public Permices Permices {get; set;}
 
     [StringLength(25)]
-    public int code {get; set;}
+    public long code {get; set;}
 
 }
 public enum Permices 
