@@ -1,0 +1,13 @@
+version: '3.8'
+services: 
+  dotnet:
+    image: mcr.microsoft.com/dotnet/sdk:7.0    
+    volumes:
+      - ./:main/app
+    working_dir: /app
+    ports:
+      - 2000:2000
+    command: dotnet run --project /app/school.csproj --urls=http://0.0.0.0:2000
+
+volumes:
+  main:
