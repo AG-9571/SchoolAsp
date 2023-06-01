@@ -6,4 +6,4 @@ COPY . /app
 
 EXPOSE 2000
 
-CMD dotnet run --project /app/school.csproj --urls=http://0.0.0.0:2000RJG
+CMD ["dotnet", "run", "--project"," /app/school.csproj" ,"--urls=http://0.0.0.0:2000RJG"]
